@@ -1,4 +1,4 @@
-# (Reversi) Othello
+# (Reversi) Othello (lab3ppois)
 
 Реализована мультиплеерная версия игры Othello. Архитектура приближена к микросервисной.
 
