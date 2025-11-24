@@ -1,0 +1,2 @@
+https://coolors.co/cbd4c2-dbebc0-c3b299-815355-523249
+users> db.users.insertOne("_id":23, "wins": 3, "losses": 0, "username": "Daniel", "password": "fdqwqf")

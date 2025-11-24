@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<BorderPane
+        style="-fx-background-color: #F9ECCC;"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="by.losik.reversi_player.controller.LeaderboardController"
+        prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <Label stylesheets="@../../../css/label.css"
+               style="-fx-font-size: 32px"
+               text="Leaderboard"
+               BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" />
+            </padding>
+        </Label>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER">
+            <TableView fx:id="userWins" maxWidth="480" maxHeight="300">
+                <columns>
+                    <TableColumn fx:id="username" text="Username" prefWidth="160"/>
+                    <TableColumn fx:id="winsAmount" text="Wins" prefWidth="160"/>
+                    <TableColumn fx:id="winRate" text="Winrate" prefWidth="160"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <stylesheets>
+                    <URL value="@../../../css/table.css" />
+                </stylesheets>
+                <tooltip>
+                    <Tooltip text="Check it out!" />
+                </tooltip>
+            </TableView>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox>
+            <Button stylesheets="@../../../css/button-black.css"
+                    prefWidth="130"
+                    text="Close"
+                    onAction="#returnToMenu"/>
+            <Button stylesheets="@../../../css/button-black.css"
+                    prefWidth="100"
+                    text="Refresh"
+                    onAction="#refresh"/>
+        </HBox>
+    </bottom>
+</BorderPane>

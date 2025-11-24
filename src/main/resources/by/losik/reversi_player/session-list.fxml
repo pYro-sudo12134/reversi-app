@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<BorderPane
+        style="-fx-background-color: #F9ECCC;"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="by.losik.reversi_player.controller.SessionListController"
+        prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <Label stylesheets="@../../../css/label.css"
+               style="-fx-font-size: 32px"
+               text="Session list"
+               BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" />
+            </padding>
+        </Label>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER">
+            <TableView fx:id="sessions" maxWidth="480" maxHeight="300">
+                <columns>
+                    <TableColumn fx:id="id" text="ID" prefWidth="160"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <stylesheets>
+                    <URL value="@../../../css/table.css" />
+                </stylesheets>
+                <tooltip>
+                    <Tooltip text="Choose any!" />
+                </tooltip>
+            </TableView>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox>
+            <Button stylesheets="@../../../css/button-black.css"
+                    prefWidth="100"
+                    text="Close"
+                    onAction="#returnToMenu"/>
+            <Button stylesheets="@../../../css/button-black.css"
+                    prefWidth="100"
+                    text="Refresh"
+                    onAction="#refresh"/>
+        </HBox>
+    </bottom>
+</BorderPane>

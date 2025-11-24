@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane
+        style="-fx-background-color: #F9ECCC;"
+        xmlns="http://javafx.com/javafx/8.0.171"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="by.losik.reversi_player.controller.MenuController"
+        prefHeight="400">
+    <padding>
+        <Insets right="10" bottom="-10" left="10"/>
+    </padding>
+
+    <top>
+        <Label style="
+               -fx-font-family: 'Cascadia Mono';
+               -fx-font-size: 32px;
+               -fx-font-weight: bold;
+               -fx-text-fill: #587D71;"
+               text="Welcome to Othello!"
+               BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10" top="20" />
+            </padding>
+        </Label>
+    </top>
+
+    <center>
+        <VBox spacing="50">
+            <VBox>
+                <HBox>
+                    <Label alignment="TOP_LEFT"
+                           style="
+                    -fx-font-family: 'Cascadia Mono';
+                    -fx-font-size: 16px;
+                    -fx-font-weight: bold;
+                    -fx-text-fill: #333;"
+                           text="Nickname: "
+                           BorderPane.alignment="CENTER_LEFT">
+                        <padding>
+                            <Insets bottom="10" top="20" />
+                        </padding>
+                    </Label>
+                    <Label fx:id="nickname" alignment="TOP_LEFT"
+                           style="
+                    -fx-font-family: 'Cascadia Mono';
+                    -fx-font-size: 16px;
+                    -fx-font-weight: bold;
+                    -fx-text-fill: #333;"
+                           text="null"
+                           BorderPane.alignment="CENTER_LEFT">
+                        <padding>
+                            <Insets bottom="10" top="20" />
+                        </padding>
+                    </Label>
+                </HBox>
+                <Button fx:id="Leaderboard"
+                        stylesheets="@../../../css/button-black.css"
+                        style="-fx-font-size: 12px"
+                        prefWidth="140"
+                        text="Leaderboard"
+                        onAction="#showLeaderboard" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            </VBox>
+            <Hyperlink fx:id="hyperlinkRule" text="Rules" onAction="#redirectToRules"/>
+            <VBox spacing="10">
+                <Label style="
+                           -fx-font-family: 'Cascadia Mono';
+                           -fx-font-size: 12px;
+                           -fx-font-weight: bold;"
+                        text="What you wanna do?"/>
+                <GridPane>
+                    <Button fx:id="Logout"
+                            stylesheets="@../../../css/button-black.css"
+                            style="-fx-font-size: 12px"
+                            prefWidth="140"
+                            text="Log out"
+                            onAction="#logout" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+                    <Button fx:id="Exit"
+                            stylesheets="@../../../css/button-black.css"
+                            style="-fx-font-size: 12px"
+                            prefWidth="140"
+                            text="Exit Game"
+                            GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Button fx:id="FindGame"
+                            stylesheets="@../../../css/button-white.css"
+                            style="-fx-font-size: 12px"
+                            prefWidth="140"
+                            text="Find Game"
+                            onAction="#findGame" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Button fx:id="CreateGame"
+                            stylesheets="@../../../css/button-white.css"
+                            style="-fx-font-size: 12px"
+                            prefWidth="140"
+                            text="Create Game"
+                            onAction="#createGame" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                </GridPane>
+            </VBox>
+        </VBox>
+    </center>
+
+    <bottom>
+    </bottom>
+</BorderPane>

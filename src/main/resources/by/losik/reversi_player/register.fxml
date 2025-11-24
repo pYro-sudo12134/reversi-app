@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane
+        style="-fx-background-color: #F9ECCC;"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="by.losik.reversi_player.controller.RegisterController"
+        prefHeight="400.0" prefWidth="600.0">
+    <padding>
+        <Insets right="10" bottom="-10" left="10"/>
+    </padding>
+
+    <top>
+        <Label style="
+               -fx-font-family: 'Cascadia Mono';
+               -fx-font-size: 32px;
+               -fx-font-weight: bold;
+               -fx-text-fill: #587D71;"
+               text="Sign Up"
+               BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10" top="20" />
+            </padding>
+        </Label>
+    </top>
+
+    <center>
+        <VBox spacing="20" maxWidth="200" alignment="CENTER">
+            <VBox>
+                <Label style="
+                           -fx-font-family: 'Cascadia Mono';
+                           -fx-font-size: 16px;
+                           -fx-font-weight: bold;"
+                       text="Username:" />
+                <TextField fx:id="username" promptText="Username">
+                    <tooltip>
+                        <Tooltip text="Enter the username"/>
+                    </tooltip>
+                </TextField>
+            </VBox>
+            <VBox>
+                <Label style="
+                           -fx-font-family: 'Cascadia Mono';
+                           -fx-font-size: 16px;
+                           -fx-font-weight: bold;"
+                       text="Password:" />
+                <TextField fx:id="password" promptText="Password">
+                    <tooltip>
+                        <Tooltip text="Enter the password"/>
+                    </tooltip>
+                </TextField>
+            </VBox>
+            <HBox alignment="BOTTOM_LEFT" spacing="5">
+                <Button stylesheets="@../../../css/button-black.css"
+                        style="-fx-font-size: 12px"
+                        text="Sign Up"
+                        onAction="#register"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+    </bottom>
+</BorderPane>

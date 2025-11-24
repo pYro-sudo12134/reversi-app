@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane
+        style="-fx-background-color: #F9ECCC;"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="by.losik.reversi_player.controller.MultSingController"
+        prefHeight="200.0" prefWidth="300.0">
+    <top>
+        <Label stylesheets="@../../../css/label.css"
+               style="-fx-font-size: 32px"
+               text="Welcome"
+               BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" />
+            </padding>
+        </Label>
+    </top>
+
+    <center>
+        <HBox alignment="CENTER">
+            <Button stylesheets="@../../../css/button-black.css"
+                    prefWidth="100"
+                    text="Local"
+                    onAction="#local"/>
+            <Button stylesheets="@../../../css/button-black.css"
+                    prefWidth="100"
+                    text="Multiplayer"
+                    onAction="#multiplayer"/>
+            <padding>
+                <Insets bottom="20" />
+            </padding>
+        </HBox>
+    </center>
+    <bottom>
+
+    </bottom>
+</BorderPane>
