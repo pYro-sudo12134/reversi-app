@@ -1,0 +1,68 @@
+version: '0.1'
+
+services:
+  app:
+    build:
+      context: ../../..
+      dockerfile: src/main/docker/Dockerfile.jvm
+    container_name: quarkus_app
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - quarkus.redis.hosts=redis://redis:6379
+      - quarkus.mongodb.connection-string=mongodb://mongodb:27017/quarkusdb?authSource=admin
+    depends_on:
+      redis:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+    networks:
+      - quarkus-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/q/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - quarkus-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: quarkusdb
+    networks:
+      - quarkus-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  redis_data:
+  mongodb_data:
+
+networks:
+  quarkus-network:
+    driver: bridge
